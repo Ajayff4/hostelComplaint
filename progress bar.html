@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+<title> Hostal complaint System</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+
+* { box-sizing: border-box; }
+body { color: #fff; background: #1b225c; font-family: Lato, sans-serif; }
+
+.title {
+  width: 100%;
+  height: 50px;
+  background: #161c4e;
+}
+
+.title h2 {
+  margin: 0;
+  font-size: 1em;
+  line-height: 50px;
+  text-align: center;
+  vertical-align: middle;
+  text-transform: uppercase;
+  letter-spacing: 6px;
+}
+
+.content {
+  width: 100%;
+  max-width: 640px;
+  margin: 40px auto;
+}
+
+.chart {
+  position: relative;
+  background: conic-gradient(#ba68c8 40.75%, #1b2159 0 41%, #ec407a 0 69.75%, #1b2159 0 70%, #ef6c00 0 89.75%, #1b2159 0 90%, #ffd740 0 96.75%, #1b2159 0 97%, #69f0ae 0 99.75%, #1b2159 0);
+  width: 280px;
+  height: 280px;
+  border-radius: 50%;
+  padding-top: 280px;
+  margin: 0 auto;
+  box-shadow: 0 0 20px #222;
+}
+
+.chart-inner {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 80%;
+  height: 80%;
+  padding-top: 80%;
+  border-radius: 50%;
+  margin: -40% 0 0 -40%;
+  background: #1a2057;
+  box-shadow: inset 0 0 20px #222;
+}
+
+.chart-inner-text {
+  float: left;
+  position: absolute;
+  width: 150px;
+  line-height: 3em;
+  top: 34%;
+  left: 50%;
+  margin-left: -75px;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.chart-inner-text span {
+  display: block;
+}
+
+.chart-inner-text .total {
+  font-size: 54px;
+  font-weight: 700;
+}
+
+.chart-info {
+  max-width: 320px;
+  margin: 40px auto;
+  list-style-type: none;
+}
+
+.chart-data {
+  margin: 0 0 40px 0;
+}
+
+.percent {
+  display: inline-block;
+  width: 50px;
+  padding: 3px 8px;
+  border-radius: 10px;
+  margin-right: 4px;
+  color: #222;
+  font-weight: 700;
+  text-align: center;
+}
+
+.purple { background: #ba68c8; }
+.magenta { background: #ec407a; }
+.orange { background: #ef6c00; }
+.yellow { background: #ffd740; }
+.mint { background: #69f0ae; }
+
+@media only screen and (min-width: 640px) {
+  .title {
+    height: 90px;
+  }
+  .title h2 {
+    font-size: 1.5em;
+    line-height: 90px;
+  }
+  .chart {
+    float: left;
+    width: 320px;
+    height: 320px;
+    padding-top: 320px;
+    margin: 0 20px;
+  }
+  .chart-info {
+    float: left;
+    padding: 0;
+    margin: 20px 0 0 40px;
+  }
+}
+
+</style>
+</head>
+<body>
+<div class="title">
+  <h2>Event Participants</h2>
+</div>
+
+<div class="content">
+
+  <div class="chart">
+    <div class="chart-inner">
+      <div class="chart-inner-text"><span class="total">542</span><span>Participants Total<span></div>
+    </div>
+  </div>
+      
+  <ul class="chart-info">
+    <li class="chart-data"><span class="percent purple">41%</span> Spectators - on site</li>
+        <li class="chart-data"><span class="percent magenta">29%</span> Spectators - reserved</li>
+        <li class="chart-data"><span class="percent orange">20%</span> Players</li>
+        <li class="chart-data"><span class="percent yellow">7%</span> Competitors</li>
+        <li class="chart-data"><span class="percent mint">3%</span> Judges</li>
+        </ul>
+      </div>
+      </body>
+</head>
+
+
+// uses the conic-gradient() polyfill

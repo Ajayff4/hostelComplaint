@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<title>SignUp Form</title>
+<meta charset="UTF-8">
+<meta id="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+
+<!-- html form login -->
+<div class="login">
+  <div class="login-triangle"></div>
+    <h2 class="login-header">SignUp</h2>
+    <form class="login-container" method="GET">
+      <p><input type="text" placeholder="Name" id="name"><input type="text" style="float:right;" placeholder="Hostel" id="hostel"></p>
+      <!--p><h6 id="nameMsg" style="color: red;"></h6><h6 id="hostelMsg" style="color: red;"></h6></p-->
+
+
+  	  <p><input type="text" placeholder="Roll-No" id="roll"><input type="text" style="float:right;" placeholder="Room-No" id="room"></p>
+      <!--p><h6 id="rollMsg" style="color: red;"></h6><h6 id="roomMsg" style="color: red;"></h6></p-->
+
+
+  	  <p><input type="text" placeholder="Email" id="email"><input type="text" style="float:right;" placeholder="Mobile" id="mobile"></p>
+      <!--p><h6 id="emailMsg" style="color: red;"></h6><h6 id="mobileMsg" style="color: red;"></h6></p-->
+
+
+      <p><input type="text" placeholder="Course" id="course"><input type="text" style="float:right;" placeholder="Branch" id="branch"></p>
+      <!--p><h6 id="courseMsg" style="color: red;"></h6><h6 id="branchMsg" style="color: red;"></h6></p-->
+
+
+      <p><input type="password" placeholder="password" id="password"><input type="text" style="float:right;" placeholder="Question" id="question"></p>
+
+
+      <p><input type="password" placeholder="Re-Enter-pass" id="rePassword"><input type="text" style="float:right;" placeholder="Answer" id="answer"></p>
+
+      <p><input type="file" id="photo" style="background:red; height:56px;"><input type="submit" style="float:right; " value="Log in" id="submit" id="submit" onclick="return formValidation();"></p>		
+    </form>
+  </div>
+</div>
+<script type="text/javascript" src="scripts.js"></script>
+</body>
+</head>
+</html>
