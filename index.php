@@ -1,7 +1,6 @@
 <?php
   session_start();
   $user = $_SESSION['username'];
-  echo "<script>alert('<?php echo".$user."; ?>');</script>";
 ?>
 
 <!DOCTYPE html>
@@ -226,7 +225,7 @@ label{
   <div class="w3-right w3-hide-small">
       <a href="#team" class="w3-bar-item w3-button"><i class="fa fa-user" aria-hidden="true"></i> TEAM</a>
       <a href="#work" class="w3-bar-item w3-button"><i class="fa fa-th-large" aria-hidden="true"></i> Gallery</a>
-	   <a href="login.html" class="w3-bar-item w3-button"><i class="fa fa-user-plus" aria-hidden="true"></i> Login</a>
+	   <a href="login.php" class="w3-bar-item w3-button"><i class="fa fa-user-plus" aria-hidden="true"></i> Login</a>
 	    <a href="#section2" class="w3-bar-item w3-button"><i class="fa fa-address-book" aria-hidden="true"></i> Contact us</a>
 		<a href="#about" class="w3-bar-item w3-button"><i class="fa fa-info-circle" aria-hidden="true"></i> ABOUT</a>
 		 <a href="#FAQ"  class="w3-bar-item w3-button"><i class="fa fa-question-circle" aria-hidden="true"></i> FAQ</a>
@@ -257,7 +256,7 @@ label{
   <div class="w3-display-left w3-text-white" style="padding:48px">
     <span class="w3-jumbo w3-hide-small">Feel Free To Complain.</span><br>
     <span class="w3-xxlarge w3-hide-large w3-hide-medium">Start something that matters For Change</span><br>
-    <p><a href="signup.html" class="w3-button w3-white w3-padding-large w3-large w3-margin-top w3-opacity w3-hover-opacity-off">SignUp here</a></p>
+    <p><a href="signup.php" class="w3-button w3-white w3-padding-large w3-large w3-margin-top w3-opacity w3-hover-opacity-off">SignUp here</a></p>
   </div> 
   
 </header>

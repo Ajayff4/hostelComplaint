@@ -1,27 +1,31 @@
 <?php
-	  session_start();
-	  session_destroy();
-	  require 'config.php';
-	  $username=$password=$row=$roll="";
-	  if($_SERVER["REQUEST_METHOD"]=="POST")
-	  {
-	    $username=strtolower(trim($_POST['username']));
-	    $password=trim($_POST['password']);
-	  }
-	  $sql = "SELECT roll FROM students WHERE email='$username' OR roll='$username' AND password='$password';";
-	  $result = mysqli_query($conn, $sql);
-	  if(mysqli_num_rows($result)>0){
-	  	$row=mysqli_fetch_assoc($result);
-	  	$roll=$row['roll'];
-	  	echo '<script>alert("-=-=-=-=-=Welcome User=-=-=-=-=-=-");</script>';
-	  	session_start();
-	  	$_SESSION['username']=$roll;
-	  	header('Location : index.php');
-        exit;
-	  }else{
-	  	echo '<script>alert("-=-=-=-=-=Unauthorized User!!!=-=-=-=-=-=-");</script>';
-	  }
-	  mysqli_close($conn);
+	session_start();
+	session_destroy();
+	require 'config.php';
+
+    $username=$password="";
+
+    if($_SERVER["REQUEST_METHOD"]=="POST")
+    {
+      $username=strtolower(trim($_POST['username']));
+      $password=trim($_POST['password']);
+      $sql="SELECT roll, password FROM students WHERE roll='$username' AND password='$password';";
+      echo $username.','.$password;
+      $query = mysqli_query($conn,$sql);
+
+      if(mysqli_num_rows($query)>0)
+      {
+        echo"<script>alert('You are signed in successfully.')</script>";
+        session_start();
+     	$_SESSION['username'] = $username;
+        header('Location:index.php');
+      }
+      else
+      {
+        echo"<script>alert('Username or Password is incorrect')</script>"; 
+      }
+    }
+    mysqli_close($conn);
 ?>
 
 
@@ -29,7 +33,7 @@
 <html>
 <title>Login Form</title>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<!--meta name="viewport" content="width=device-width, initial-scale=1"-->
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">

@@ -2,19 +2,21 @@
   require 'config.php';
   session_start();
   $_SESSION['username'] = "M170368CA";
-    $category=$subCategory=$desc=$problemPic=$tokenid="";
 
+    $category=$subCategory=$desc=$problemPic=$tokenid="";
     if($_SERVER["REQUEST_METHOD"]=="POST")
     {
       $category=trim($_POST['select1']);
-      $subCategory=trim($_POST['select2']);
-      $image = addslashes(file_get_contents($_FILES['image']['tmp_name']));  //SQL Injection defence!
+      $subCategory=trim($_POST['subComplaintName']);
+      $subCategory= $_GET['subComplaintName'];
+      @$image = addslashes(file_get_contents($_FILES['image']['tmp_name']));  //SQL Injection defence!
       $desc=trim($_POST['desc']);
       $tokenid="TOKEN".rand(100,999);
       $sroll = $_SESSION['username'];
       $sql="INSERT INTO complaints VALUES('$tokenid', '$sroll', '$category', '$subCategory', '$desc', '$image');";
       echo "results".$tokenid.$sroll.$category.$subCategory.$desc;
       mysqli_query($conn,$sql);
+      header('Location:dashboard.php');
       /*
       if(mysqli_query($conn,$sql))
       {
@@ -37,6 +39,7 @@
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
 <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css'>
 <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
 <link rel="stylesheet" type="text/css" href="style.css">
@@ -78,9 +81,11 @@
 
           echo "<select name='select2' id='select2' style='float:right;'><option value='' >Choose Category</option>";
           while ($row = mysqli_fetch_array($result)) {
-              echo "<option value='" . $row['ctype'] . "'>" . $row['subComplaintName'] . "</option>";
+              echo "<option value='" . $row['ctype'] . "'>" .$row['subComplaintName']."</option>";
+              $_GET['subComplaintName'] = $row['subComplaintName'];
           }
           echo "</select>";
+
         ?>
       </p>
       <p>
@@ -89,7 +94,7 @@
       
 
       <p>
-        <input type="file" id="photo" name="photo" onchange="validatePhotoUpload(this.value);" style="background:red; height:56px;" >
+        <input type="file" id="image" name="image" onchange="validatePhotoUpload(this.value);" style="background:red; height:56px;" >
         <input type="submit" style="float:right; " value="Log in" id="submit" id="submit" onclick="return formValidator();">
       </p>  
       <p style="color: red;">*Image upload is not mandatory</p>

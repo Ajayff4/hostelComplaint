@@ -7,6 +7,7 @@
       $name=strtolower(trim($_POST['name']));
       $hostel=trim($_POST['hostel']);
       $roll=strtolower(trim($_POST['roll']));
+      $room=trim($_POST['roll']);
       $email=strtolower(trim($_POST['email']));
       $mobile=trim($_POST['mobile']);
       $course=strtolower(trim($_POST['course']));
@@ -18,20 +19,19 @@
       $rePassword=strtolower(trim($_POST['rePassword']));
       
       $sql="INSERT INTO students VALUES('$roll', '$name', '$mobile', '$email', '$hostel', '$room', '$photo', '$password', '$course', '$branch', '$question', '$answer');";
-      echo "results".$name.$roll.$hostel.$room.$email.$mobile.$course.$branch.$question.$answer.$password;
-      mysqli_query($conn,$sql);
-      /*
+      //echo "results".$name.$roll.$hostel.$room.$email.$mobile.$course.$branch.$question.$answer.$password;
+      
       if(mysqli_query($conn,$sql))
       {
         echo "<script>alert('Your records are saved successfully.')</script>";
-        //header('Location:index.html');
+        header('Location:login.php');
       }
       else
       {
         echo"<script>alert('Error generated !!!')</script>"; 
-      }*/
+      }
     }
-    //mysqli_close($conn);
+    mysqli_close($conn);
 ?>
 
 <!DOCTYPE html>
